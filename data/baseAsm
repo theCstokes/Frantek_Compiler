@@ -1,0 +1,20 @@
+;//IMPORT
+%include "asm_io.inc"
+global asm_main
+;//DATA
+section .data
+;//BSS
+section .bss
+;//TEXT
+section .text
+
+;//START
+asm_main:
+  enter 0, 0
+  pusha
+  
+;//END
+END: ; end prog
+  popa
+  leave
+  ret  
