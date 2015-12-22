@@ -1,2 +1,4 @@
-String data = "Hello, World";
-System.out.println(data);
+String data1 = "Hello";
+String data2 = "World";
+data1 + data2;
+System.out.println(data1);
