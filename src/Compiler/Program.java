@@ -15,7 +15,7 @@ public class Program extends BaseProgram{
 	private String name;
 	private File asm;
 	
-	public List<String> programLines;
+	private final List<String> programLines;
 	public Map<String, Type>  objects;
 	
 	public Program(String name) throws IOException {
@@ -28,7 +28,11 @@ public class Program extends BaseProgram{
 		}
 		asm.createNewFile();
 		objects = new HashMap<String, Type>();
-	}	
+	}
+	
+	public List<String> getInputProgramLines() {
+		return programLines;
+	}
 	
 
 }

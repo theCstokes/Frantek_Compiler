@@ -1,4 +1,8 @@
-String data1 = "Hello";
-String data2 = "World";
-data1 + data2;
-System.out.println(data1);
+String data = "Hello world";
+int i = 7;
+int j = 2;
+int k = 11;
+int l = 3;
+i = (i + j + k + l);
+System.out.println(i);
+System.out.println(data);
