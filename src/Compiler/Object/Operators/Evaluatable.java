@@ -1,5 +1,7 @@
 package Compiler.Object.Operators;
 
+import java.util.List;
+
 import Compiler.Object.Types.Convertible;
 import Compiler.Object.Types.Storeable;
 import Compiler.Object.Types.Type;
@@ -14,4 +16,6 @@ public interface Evaluatable {
 	public boolean isReversible();
 	
 	public String getAsmCall();
+	
+	public List<String> getAsmCalls();
 }

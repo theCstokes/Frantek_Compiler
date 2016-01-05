@@ -8,7 +8,7 @@ import Compiler.Parser.CodeLine;
 public class Addable extends Operator {
 	
 	public Addable() {
-		super("+", 2, "add", true);
+		super("+", 2, true, "add");
 	}
 	
 	@Override

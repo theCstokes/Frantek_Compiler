@@ -69,6 +69,14 @@ public class Equation {
 				--order;
 				continue;
 			}
+			if (Operators.LESS_THEN == c) {
+				pushVarData(varBuilder, order);
+				continue;
+			}
+			if (Operators.GREATER_THEN == c) {
+				pushVarData(varBuilder, order);
+				continue;
+			}
 		}
 		pushVarData(varBuilder, order);
 	}

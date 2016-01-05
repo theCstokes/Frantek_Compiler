@@ -7,7 +7,7 @@ import Compiler.Object.Types.Type;
 public class Equals extends Operator {
 	
 	public Equals() {
-		super("=", Integer.MAX_VALUE, "mov", true);
+		super("=", Integer.MAX_VALUE, true, "mov");
 	}
 	
 	@Override

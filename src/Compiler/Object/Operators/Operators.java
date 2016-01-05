@@ -13,6 +13,9 @@ public enum Operators implements Evaluatable {
 	public static final char OPEN_BRACKET = '(';
 	public static final char CLOSE_BRACKET = ')';
 	
+	public static final char LESS_THEN = '<';
+	public static final char GREATER_THEN = '>';
+	
 	private Operator operator;
 	private Operators(Operator op) {
 		this.operator = op;
