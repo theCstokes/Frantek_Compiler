@@ -9,10 +9,10 @@ import javax.swing.text.DefaultEditorKit.CutAction;
 import Compiler.Builder;
 import Compiler.Integration.Reg;
 import Compiler.Integration.Stack;
-import Compiler.Object.Operators.Evaluatable;
+import Compiler.Object.Operators.IEvaluatable;
 import Compiler.Object.Operators.Operator;
 import Compiler.Object.Operators.Operators;
-import Compiler.Object.Types.Convertible;
+import Compiler.Object.Types.IConvertible;
 import Compiler.Object.Types.Type;
 import Compiler.Object.Types.VInteger;
 
@@ -69,14 +69,14 @@ public class Equation {
 				--order;
 				continue;
 			}
-			if (Operators.LESS_THEN == c) {
-				pushVarData(varBuilder, order);
-				continue;
-			}
-			if (Operators.GREATER_THEN == c) {
-				pushVarData(varBuilder, order);
-				continue;
-			}
+//			if (Operators.LESS_THEN == c) {
+//				pushVarData(varBuilder, order);
+//				continue;
+//			}
+//			if (Operators.GREATER_THEN == c) {
+//				pushVarData(varBuilder, order);
+//				continue;
+//			}
 		}
 		pushVarData(varBuilder, order);
 	}
@@ -114,8 +114,8 @@ public class Equation {
 		SplitObject splitData = split();
 		boolean collapsedLeft = false;
 		boolean collapsedRight = false;
-		Convertible arg1 = null;
-		Convertible arg2 = null;
+		IConvertible arg1 = null;
+		IConvertible arg2 = null;
 		
 		if(!splitData.left.isEvaluateable()) {
 			collapsedLeft = true;

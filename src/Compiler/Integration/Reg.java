@@ -1,10 +1,10 @@
 package Compiler.Integration;
 
 import Compiler.Builder;
-import Compiler.Object.Types.Storeable;
+import Compiler.Object.Types.IStoreable;
 import Compiler.Object.Types.Type;
 
-public enum Reg implements Storeable{
+public enum Reg implements IStoreable{
 	EAX("eax"), EBX("ebx"), ECX("ecx"), EDX("edx"), ESI("esi"), EDI("edi"), EBP("ebp"), ESP("esp");
 	
 	private String name;

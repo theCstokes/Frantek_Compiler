@@ -1,6 +1,7 @@
 package Compiler.Object.Types;
 
-public interface Convertible {
+public interface IConvertible {
+	
 	public String convertToReg();
 	
 	public String convertFromReg();

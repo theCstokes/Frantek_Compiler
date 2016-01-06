@@ -4,34 +4,49 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import java.util.ListIterator;
 import Compiler.Object.Types.Type;
-import Compiler.Object.Types.Types;
-import Compiler.Object.Types.VString;
+import Compiler.Parser.ProgramParser;
+import Compiler.Structures.Structure;
 
-public class Program extends BaseProgram{
-	private String name;
+public class Program extends BaseProgram {
 	private File asm;
+	private ProgramParser programParser;
 	
-	private final List<String> programLines;
-	public Map<String, Type>  objects;
+	
 	
 	public Program(String name) throws IOException {
-		super();
-		this.name = name;
-		programLines = 	Files.readAllLines(Paths.get(name));
+		super(Files.readAllLines(Paths.get(name)));
 		asm = new File(FileConstants.ASM_FILE_DATA.location());
 		if (asm.exists()) {
 			asm.delete();
 		}
 		asm.createNewFile();
 		objects = new HashMap<String, Type>();
+		programParser = new ProgramParser(inputCodeLines);
+	}
+
+	@Override
+	public boolean declaresStructure(String line) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean endsStructure(String line) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Structure create(ListIterator<String> lines) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
-	public List<String> getInputProgramLines() {
-		return programLines;
+	public void build() {
+		programParser.parse();
+		write();
 	}
 	
 

@@ -1,11 +1,11 @@
 package Compiler.Integration;
 
 import Compiler.Builder;
-import Compiler.Object.Types.Convertible;
+import Compiler.Object.Types.IConvertible;
 import Compiler.Object.Types.Type;
 import Compiler.Parser.Equation.SplitObject;
 
-public class Stack implements Convertible {
+public class Stack implements IConvertible {
 	
 	private static int lookBack = 0;
 	

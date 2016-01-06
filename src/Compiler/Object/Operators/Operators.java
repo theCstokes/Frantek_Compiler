@@ -1,13 +1,10 @@
 package Compiler.Object.Operators;
 
-import java.lang.reflect.Method;
-import java.util.concurrent.Callable;
-import java.util.function.Function;
+import java.util.List;
 
-import Compiler.Object.Types.Convertible;
-import Compiler.Object.Types.Type;
+import Compiler.Object.Types.IConvertible;
 
-public enum Operators implements Evaluatable {
+public enum Operators implements IEvaluatable {
 	EQUALS(new Equals()), ADD(new Addable());
 	
 	public static final char OPEN_BRACKET = '(';
@@ -64,7 +61,7 @@ public enum Operators implements Evaluatable {
 	}
 
 	@Override
-	public void evaluate(Convertible arg1, Convertible arg2) {
+	public void evaluate(IConvertible arg1, IConvertible arg2) {
 		operator.evaluate(arg1, arg2);		
 	}
 
@@ -76,6 +73,11 @@ public enum Operators implements Evaluatable {
 	@Override
 	public boolean isReversible() {
 		return operator.isReversible();
+	}
+
+	@Override
+	public List<String> getAsmCalls() {
+		return operator.getAsmCalls();
 	}
 	
 }

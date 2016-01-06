@@ -14,6 +14,7 @@ public class CodeLine {
 	
 	private boolean hasAssignment;
 	private boolean hasEquation;
+	private boolean hasIf;
 	private Types type;
 	
 	public CodeLine(String line) {
@@ -21,6 +22,7 @@ public class CodeLine {
 		spaceSplit = Arrays.asList(line.split(" "));
 		hasAssignment = spaceSplit.contains(Operators.EQUALS.getID());
 		hasEquation = check(Operators::isOp);
+		hasIf = spaceSplit.contains("if(");
 		type = Types.isType(spaceSplit.get(0));
 	}
 	
@@ -42,6 +44,10 @@ public class CodeLine {
 		} else {
 			return null;
 		}
+	}
+	
+	public boolean startsIf() {
+		return hasIf;
 	}
 	
 	public boolean createsType() {

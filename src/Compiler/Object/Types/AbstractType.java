@@ -3,7 +3,7 @@ package Compiler.Object.Types;
 import Compiler.Builder;
 import Compiler.Integration.Reg;
 
-public abstract class AbstractType implements Storeable {
+public abstract class AbstractType implements IStoreable {
 	private String data;
 	
 	public AbstractType() {

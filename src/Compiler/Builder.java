@@ -1,14 +1,14 @@
 package Compiler;
 import java.io.IOException;
 
-import Compiler.Parser.ParserUtils;
+import Compiler.Parser.ProgramParser;
 
 public class Builder {
 	public static Program prog;
 
 	public static void main(String[] args) throws IOException {
 		prog = new Program("data/program");
-		ParserUtils.parse();
-		prog.write();
+//		Parser.parse();
+		prog.build();
 	}
 }

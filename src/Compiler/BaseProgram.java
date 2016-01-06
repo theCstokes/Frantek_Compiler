@@ -4,9 +4,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
-public class BaseProgram {
+import Compiler.Structures.Structure;
+
+public abstract class BaseProgram extends Structure{
 
 	private final String IMPORTS_TAG = ";//IMPORT";
 	private final String DATA_TAG = ";//DATA";
@@ -23,7 +27,17 @@ public class BaseProgram {
 	private List<String> prog;
 	private List<String> end;
 
-	public BaseProgram() {
+	public BaseProgram(List<String> lines) {
+		super(lines);
+		init();
+	}
+	
+	public BaseProgram(ListIterator<String> lines) {
+		super(lines);
+		init();
+	}
+	
+	private void init() {
 		refs = new ArrayList<>();
 		data = new ArrayList<>();
 		bss = new ArrayList<>();
@@ -32,7 +46,6 @@ public class BaseProgram {
 		prog = new ArrayList<>();
 		end = new ArrayList<>();
 		parse();
-
 	}
 
 	private void parse() {
@@ -95,7 +108,7 @@ public class BaseProgram {
 		bss.addAll(line);
 	}
 
-	public void write() {
+	protected void write() {
 		try {
 			writeSection(refs);
 			writeSection(data);

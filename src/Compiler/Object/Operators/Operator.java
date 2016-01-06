@@ -6,9 +6,9 @@ import java.util.List;
 
 import Compiler.Builder;
 import Compiler.Integration.Reg;
-import Compiler.Object.Types.Convertible;
+import Compiler.Object.Types.IConvertible;
 
-public abstract class Operator implements Evaluatable {
+public abstract class Operator implements IEvaluatable {
 	
 	public static final String ARG_SPLITTER = ", ";
 	
@@ -17,7 +17,7 @@ public abstract class Operator implements Evaluatable {
 	private final List<String> asmCalls; 
 	private final boolean reversable;
 	
-	public Operator(Evaluatable evaluatable) {
+	public Operator(IEvaluatable evaluatable) {
 		this.ID = evaluatable.getID();
 		this.strength = evaluatable.getStrength();
 		this.asmCalls = new ArrayList<>(evaluatable.getAsmCalls());
@@ -43,7 +43,7 @@ public abstract class Operator implements Evaluatable {
 		StringBuffer out = new StringBuffer();
 		for(String call : asmCalls) {
 			out.append(call);
-			out.append(System.lineSeparator()); 
+//			out.append(System.lineSeparator()); 
 		}
 		out.append(" ");
 		return out.toString();
@@ -57,11 +57,11 @@ public abstract class Operator implements Evaluatable {
 		return reversable;
 	}
 	
-	public static Convertible move(Convertible arg) {
+	public static IConvertible move(IConvertible arg) {
 		return move(arg, Reg.EAX);
 	}
 	
-	public static Convertible move(Convertible arg, Reg dest) {
+	public static IConvertible move(IConvertible arg, Reg dest) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("mov ");
 		sb.append(dest.getName());

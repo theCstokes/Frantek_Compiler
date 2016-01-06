@@ -1,6 +1,6 @@
 package Compiler.Object.Types;
 
-public interface Storeable extends Convertible{
+public interface IStoreable extends IConvertible{
 	
 	public String getData();
 	
