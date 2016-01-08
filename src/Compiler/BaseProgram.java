@@ -11,7 +11,9 @@ import java.util.ListIterator;
 import Compiler.Structures.Structure;
 
 public abstract class BaseProgram extends Structure{
-
+	
+	private final static String ID = "Program";
+	
 	private final String IMPORTS_TAG = ";//IMPORT";
 	private final String DATA_TAG = ";//DATA";
 	private final String BSS_TAG = ";//BSS";
@@ -28,12 +30,12 @@ public abstract class BaseProgram extends Structure{
 	private List<String> end;
 
 	public BaseProgram(List<String> lines) {
-		super(lines);
+		super(ID, lines);
 		init();
 	}
 	
 	public BaseProgram(ListIterator<String> lines) {
-		super(lines);
+		super(ID, lines);
 		init();
 	}
 	
